@@ -4,6 +4,9 @@
     %title Abstractions
     = stylesheet_link_tag "site"
     %meta{ content: "width=device-width, initial-scale=1.0", name: "viewport" }
+    %script{ src: "https://use.typekit.net/kil3imw.js" }
+    :javascript
+      try{Typekit.load({ async: true });}catch(e){}
 
   %body
     %main#schedule= yield
