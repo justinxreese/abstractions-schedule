@@ -1,22 +1,11 @@
+- small_counter = 0
 - data.schedule.days.each do |day|
   .day
     %h2.day-title= day.name
     - day.stages.each do |stage|
       .stage{ data: { stage: stage.name } }
         %h3.stage-name= stage.name
-        .sessions
-          - stage.sessions.each do |session|
-            - speaker = session.speaker
-            .speaker
-              %h4.speaker-name
-                = speaker.name
-                %a.speaker-twitter{ href: "https://twitter.com/#{speaker.twitter}"}
-                  %img{ src: "http://abstractions.io/images/social/twitter.svg", alt: speaker.twitter }
-              %p.speaker-location= speaker.bio && speaker.bio.location
-              - unless session.talk.nil?
-                .session
-                  %h5.session-title= session.talk.title
-                  %p.session-time= "#{session.time_start}&mdash;#{session.time_end}"
-                  %p.session-description= session.talk.abstract
-
-
+        - if stage.name == "Small Stage" || stage.name == "Distractions"
+          = partial(:thirds, locals:  { sessions: stage.sessions } )
+        - else
+          = partial(:sessions, locals: { sessions: stage.sessions } )

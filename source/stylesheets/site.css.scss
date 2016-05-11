@@ -96,9 +96,7 @@ a {
 .stage[data-stage="Small Stage"] {
   .speaker {
     @include span-columns(4);
-    float: left;
     clear: none;
-    min-height: 17rem;
 
     &:nth-child(3n) { margin-right: 0; }
   }
@@ -110,6 +108,15 @@ a {
 
   .session-description {
     font-size: 0.8rem;
+  }
+}
+
+.sessions-thirds {
+  @include span-columns(12);
+  border-bottom: 1px solid $yellow;
+
+  .speaker {
+    border: none;
   }
 }
 
