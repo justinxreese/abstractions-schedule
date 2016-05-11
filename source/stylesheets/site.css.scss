@@ -20,6 +20,15 @@ h3 { font-size: 1.5rem; }
 h4 { font-size: 1.2rem; }
 h5 { font-size: 1.1rem; }
 
+a {
+  color: $pink;
+  text-decoration: none;
+
+  &:hover, &:active {
+    color: $yellow;
+  }
+}
+
 #schedule {
   @include outer-container;
   margin: 1rem auto;
@@ -102,4 +111,13 @@ h5 { font-size: 1.1rem; }
   .session-description {
     font-size: 0.8rem;
   }
+}
+
+footer {
+  background: rgba(132, 72, 117, 0.25);
+  border-top: 1px solid $pink;
+  font-size: 1.1rem;
+  padding: 2rem;
+
+  img { height: 0.8rem; }
 }
