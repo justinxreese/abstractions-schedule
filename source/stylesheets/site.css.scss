@@ -1,5 +1,7 @@
 @charset "utf-8";
 @import "normalize";
+@import "bourbon/bourbon";
+@import "neat/neat";
 
 $yellow: #ead143;
 $mauve:  #844875;
@@ -12,28 +14,14 @@ body {
   color: #fff;
 }
 
-h1 {
-  font-size: 2rem;
-}
-
-h2 {
-  font-size: 1.7rem;
-}
-
-h3 {
-  font-size: 1.5rem;
-}
-
-h4 {
-  font-size: 1.2rem;
-}
-
-h5 {
-  font-size: 1.1rem;
-}
+h1 { font-size: 2rem; }
+h2 { font-size: 1.7rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.2rem; }
+h5 { font-size: 1.1rem; }
 
 #schedule {
-  width: 80%;
+  @include outer-container;
   margin: 1rem auto;
 }
 
@@ -50,37 +38,18 @@ h5 {
 }
 
 .stage {
+  @include span-columns(6);
   float: left;
 
-  &[data-stage="Main Stage"] {
-    width: 100%;
-  }
-
-  &[data-stage="Main Stage A"],
-  &[data-stage="Main Stage B"] {
-    width: 49%;
-  }
-
-  &[data-stage="Main Stage B"] {
-    float: right;
-  }
-
-  &[data-stage="Large Stage 1"] {
-    clear: both;
-  }
-
-  &[data-stage="Large Stage 1"],
+  &[data-stage="Main Stage B"],
   &[data-stage="Large Stage 2"] {
-    width: 49%;
+    margin-right: 0;
   }
 
-  &[data-stage="Large Stage 2"] {
-    float: right;
-  }
-
+  &[data-stage="Main Stage"],
+  &[data-stage="Distractions"],
   &[data-stage="Small Stage"] {
-    width: 100%;
-    clear: both;
+    @include span-columns(12);
   }
 
   .stage-name {
@@ -117,11 +86,12 @@ h5 {
 .stage[data-stage="Distractions"],
 .stage[data-stage="Small Stage"] {
   .speaker {
-    width: 31%;
-    margin: 0 2% 0 0;
+    @include span-columns(4);
     float: left;
     clear: none;
     min-height: 17rem;
+
+    &:nth-child(3n) { margin-right: 0; }
   }
 }
 
