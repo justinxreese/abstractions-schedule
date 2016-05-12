@@ -9,7 +9,7 @@
             - speaker = session.speaker
             -# ["time_start", "time_end", "talk", "speaker"]
             .speaker
-              %img.speaker-image{ src: "http://abstractions.io/images/speakers/#{speaker.image}", alt: speaker.name }
+              %img.speaker-image{ src: (speaker.external_image || "http://abstractions.io/images/speakers/#{speaker.image}"), alt: speaker.name }
               %h4.speaker-name
                 = speaker.name # ["name", "image", "bio", "twitter"]
                 %a.speaker-twitter{ href: "https://twitter.com/#{speaker.twitter}"}
